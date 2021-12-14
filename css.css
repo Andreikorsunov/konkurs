@@ -1,0 +1,39 @@
+img{
+    width: 175px;
+    height: 175px;
+    border-radius: 4px;
+}
+table {
+    border-collapse: collapse;
+    background-color: white;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: center;
+}
+ul{
+    border: 2px solid blue;
+    background-color: lightblue;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+body{
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(139,177,123,1) 0%, rgba(0,212,255,1) 100%);
+    padding: 1rem;
+}
