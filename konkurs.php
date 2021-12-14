@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION["tuvastamine"])){
+    header("Location: login.php");
+    exit();
+}
 require_once ('conf.php');
 global $yhendus;
 // punktide lisamine UPDATE
@@ -24,6 +29,12 @@ if(isset($_REQUEST['uus_komment'])){
     <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
+<div>
+    <p><?=$_SESSION["kasutaja"]?> on sisse logitud</p>
+    <form action="logout.php" method="post">
+        <input type="submit" value="Logi välja" name="logout">
+    </form>
+</div>
 <nav>
     <ul>
         <a href="haldus.php">Administreerimise leht</a>

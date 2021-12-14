@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION["tuvastamine"])){
+    header("Location: login.php");
+    exit();
+}
 require_once ('conf.php');
 global $yhendus;
 // punktid nulliks UPDATE
@@ -44,6 +49,12 @@ if(isset($_REQUEST['kustuta'])){
     <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
+<div>
+    <p><?=$_SESSION["kasutaja"]?> on sisse logitud</p>
+    <form action="logout.php" method="post">
+        <input type="submit" value="Logi välja" name="logout">
+    </form>
+</div>
 <nav>
     <ul>
         <a href="haldus.php">Administreerimise leht</a>
@@ -80,13 +91,5 @@ while($kask->fetch()){
 }
 echo "<table>";
 ?>
-<h2>Uue pilti lisamine konurssi</h2>
-<form action="?">
-    <input type="text" name="nimi" placeholder="uus nimi">
-    <br>
-    <textarea name="pilt">Pildi linki aadress</textarea>
-    <br>
-    <input type="submit" value="Lisa">
-</form>
 </body>
 </html>
